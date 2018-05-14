@@ -1,23 +1,25 @@
 from itertools import *
 import random
 
+
 Empty = '-'
 player1 = 'X'
 computerAi = 'O'
 
 
 
-def diagonalsrigth (matrix, cols, rows):                                                                  #          X
-        for di in ([(j, i - j) for j in range(cols)] for i in range( cols + rows -1) ):                   #        X
-                yield [matrix[i][j] for i, j in di if i >= 0 and j >= 0 and i < cols and j < rows]        #      X
-                                                                                                          #    X
+
+def diagonalsrigth (matrix, cols, rows):                                                                  
+        for di in ([(j, i - j) for j in range(cols)] for i in range( cols + rows -1) ):                   
+                yield [matrix[i][j] for i, j in di if i >= 0 and j >= 0 and i < cols and j < rows]        
+                                                                                                         
 
 
 
-def diagonalsleft (matrix, cols, rows):                                                                   #    X
-        for di in ([(j, i - cols + j + 1) for j in range(cols)] for i in range( cols + rows - 1 )):       #      X
-                yield [matrix[i][j] for i, j in di if i >= 0 and j >= 0 and i < cols and j < rows]        #        X  
-                                                                                                          #          X
+def diagonalsleft (matrix, cols, rows):                                                                   
+        for di in ([(j, i - cols + j + 1) for j in range(cols)] for i in range( cols + rows - 1 )):       
+                yield [matrix[i][j] for i, j in di if i >= 0 and j >= 0 and i < cols and j < rows]         
+                                                                                                          
 
 
 class connect4:
